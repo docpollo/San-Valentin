@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>¿Quieres ser mi San Valentín? ❤️</h1>
+    <img src="imagenes/corazon.png" alt="Corazón rojo" width="200">
+    <div class="botones">
+        <button class="boton" onclick="aceptar()">Sí</button>
+        <button class="boton" id="no" onmouseover="moverBoton()">No</button>
+    </div>
+
+    <!-- Música de fondo con un botón para reproducir -->
+    <audio id="miMusica">
+        <source src="musica/amor.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+    </audio>
+
+    <button onclick="toggleMusica()">🎵 Reproducir música</button>
+
+    <script>
+        function toggleMusica() {
+            let audio = document.getElementById("miMusica");
+            if (audio.paused) {
+                audio.play();
+                event.target.innerHTML = "🎵 Pausar música"; // Cambiar el texto del botón
+            } else {
+                audio.pause();
+                event.target.innerHTML = "🎵 Reproducir música"; // Cambiar el texto del botón
+            }
+        }
+
+        function aceptar() {
+            alert("¡Sabía que dirías que sí! ❤️");
+        }
+
+        function moverBoton() {
+            let botonNo = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            botonNo.style.left = x + "px";
+            botonNo.style.top = y + "px";
+        }
+    </script>
+</body>
+</html>
